@@ -2,6 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const mongoose = require("mongoose");
+const fs = require("fs");
+const https = require("https");
+const privatekey = fs.readFileSync("key.pem");
+const certificate = fs.readFileSync("cert.pem");
+const credentials = { key: privatekey, cert: certificate };
+
 //const { Mongos } = require("mongodb");
 //const bodyParser = require("body-parser");
 const url = "https://api.github.com/users/karthik4423/repos";
@@ -94,7 +100,8 @@ app.use(function (req, res, next) {
 });
 app.use(cors(corsOptions));
 
-app.listen(8000, () => {
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(8000, () => {
   console.log("App is listening at port 8000");
 });
 // repoData
