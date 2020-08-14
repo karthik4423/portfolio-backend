@@ -203,7 +203,7 @@ function addtodb() {
 }
 
 app.get("/", function (req, res) {
-  res.send("./index.html");
+  res.sendFile("index.html");
 });
 
 app.get("/getdata", function (req, res) {
