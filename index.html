@@ -1,0 +1,137 @@
+<!-- 
+    Hey there!
+    Thanks for visiting my site! This took me a while to build, especially the processing of the calls to the GitHub API. I was not that experienced in Javascript at the time when Istarted making this portfolio website. 
+    As I started learning new things, I tried to apply them here - and vice versa - when I was building this, I got to learn a lot of things, too!
+    To be honest, not all the elements you see in this website are fully coded by me - like the typewriter effect on the header, and the dark mode toggle. 
+    I'd like to credit the sources which helped me add these features to my site. 
+    Bootstrap : https://getbootstrap.com/
+    Typewriter Effect : https://www.codesdope.com/blog/article/12-creative-css-and-javascript-text-typing-animati/ (the 10th one) 
+    Dark Mode Toggle : https://ryanfeigenbaum.com/dark-mode/ (Practically copy pasted his code. Thanks a lot Ryan!) (Still working on it)
+    And also, the good folks at StackOverflow who keeps answering even the most weirdest questions. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Karthik Raj. I am a CS Undergraduate open for opportunities. Passionate coder and a part time writer.">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript,Angualar,Freelance content Writer">
+    <meta name="author" content="Karthik Raj">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=0.86, user-scalable=0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Karthik Raj |CS Graduate</title>
+</head>
+
+<body >
+    <div><header class="jumbotron">
+        <h1 class=" text-center display-4">I'm a <span
+            class="txt-rotate"
+            data-period="2000"
+            data-rotate='[ "graduate.", "programmer.", "part-time content writer." ]'></span></h1>
+            <!-- <button class="btn">Dark mode?</button> -->
+    </header>
+    
+</div>
+    
+    <div class="container" style="min-height: 100vh; position: relative;">
+        <div class="row justify-content-center"><h1 class="display-2 col-8 col-sm"></h1> </div>
+        <div class="row align-items-center" style="height: 100%;">
+            
+            <div class="col-12 col-sm-6">
+                <div class="row" style="justify-content: center;">
+                    <div class="col-12">
+                        <figure>
+                            <img class=" img-fluid img-responsive me" src="assets/self.jpg" alt="Hmm. I usually show up here ">
+                            <figcaption></figcaption>
+                        </figure>
+                    </div>
+                    <div class="row ">
+                        <div class="col-3">
+                            <a class="nolink" href="mailto:karthikraj4423@com?subject=Lead%20from%20your%20site%20">
+                                <img class="img-fluid " height="40" width="40" src="assets/emailLight.svg "></img>
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a class="nolink" href="https://github.com/karthik4423/">
+                                <img class="img-fluid " height="40" width="40" src="assets/githubLogoLight.svg "></img>
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a class="nolink" href="https://www.linkedin.com/in/karthikraj3/">
+                                <img class="img-fluid " height="40" width="40" src="assets/linkedinLogoLight.svg "></img>
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a class="nolink" href="https://medium.com/@karthikraj4423">
+                                <img class="img-fluid " height="40" width="40" src="assets/medium.svg "></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="row justify-content-center">
+                    <h2>About Me.</h2>
+                </div>
+                
+                    <div class="row justify-content-center ">
+                        
+                        <p class=" bio">Hey there, I'm Karthik Raj.</p>
+                        <p class="bio ">I'm a <span id="age"></span> year old passionate coder and a part time writer. 
+                            I'm currently pursuing my B.Tech degree from <a href="http://mgmits.ac.in">Muthoot Institute of 
+                                Technology and Science,</a> Kochi.</p>
+                        <p class="bio "> Eager to learn new things and solve problems.<br></p>
+                        <p class="bio ">In my free time, I usually scribble on <a href="https://medium.com/@karthikraj4423">my Medium page</a>, and I occasionally freelance as a content writer 
+                        for startups.</p>
+                        <p class=" bio"> <b>Carpe Diem!</b></p>
+                    </div>
+            </div>
+        </div>
+        <hr class="yellow"/>
+        <div class="row" style="justify-content: center;">
+           
+            <div class="row center"">
+                <h2 class="col heading text-center">What I've been Coding Lately.</h2>
+                <div class="row center">
+                    
+                    <div id="repos" class="row center"></div>
+                </div>
+            </div>
+
+            <br>
+            <!-- <div class="row justify-content-center">
+                <h6 class="col-12" >My Codeforces Rating</h6>
+                <div class="row justify-content-center">
+                    <p class="col-12" id="maxrank"></p>
+                    <p class="col-12" id="maxrating"></p>
+                    <p class="col-12" id="rank"></p>
+                    <p class="col-12" id="rating"></p>
+                </div>
+            </div> -->
+        </div>    
+    </div>
+    <div class="row justify-content-center">
+        <footer>NOpyright &copy;. Copy what you fancy.</footer>
+    </div>
+
+    
+    <script>
+        window.onload = () => {
+            //document.getElementById('copyright').innerText += ` ${new Date().getFullYear()}`;
+            const birthdate = new Date('03/26/1999');
+            const currentdate = new Date();
+            const age = (currentdate.getTime() - birthdate.getTime()) / (1000 * 3600 * 24 * 365);
+            const actualage = Math.floor(age);
+            document.getElementById('age').innerText = `${actualage}`;
+        };
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./githubapi.js"></script>
+    <script src="./codeforcesapi.js"></script>
+    <script src="./typewriter.js"></script>
+
+</body>
+
+</html>

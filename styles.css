@@ -1,0 +1,113 @@
+body,
+html {
+  /* margin: 0;
+  padding: 0; */
+  /* width: auto; */
+  height: 100%;
+  /*box-sizing: border-box;*/
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 96%;
+
+  height: 1px;
+}
+hr.yellow {
+  background-color: #ffff00;
+}
+hr.red {
+  background-color: red;
+}
+
+h2 {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  /* color: white; */
+}
+p.bio {
+  /*text-align: center;*/
+  padding: 5px;
+  margin: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666666;
+}
+.white-text {
+  color: white;
+}
+
+footer {
+  text-align: center;
+  font-weight: bold;
+  /*position: absolute;*/
+}
+
+figcaption {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666666;
+}
+
+figure {
+  text-align: center;
+  /*box-shadow: 10px 10px 10px #eeeeee;*/
+}
+.me {
+  height: 50%;
+  width: 50%;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  /* color: #2d3644; */
+  color: #666666;
+  text-decoration: none;
+  border-bottom: 1px grey dotted;
+}
+a.nolink {
+  border-bottom: none;
+}
+
+.jumbotron {
+  background-color: #7510f7 !important ;
+  align-items: center;
+  min-height: 40% !important;
+}
+
+.card-style {
+  margin-bottom: 5px;
+
+  /* padding: 5px; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5),
+    0 16px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sub-heading {
+  margin: 10px;
+  padding: 5px;
+  /* align-items: center; */
+}
+
+.lang-style {
+  font-weight: bold;
+}
+
+.center {
+  justify-content: center;
+}
+
+.heading {
+  margin: 10px;
+}
+.card {
+  /* background-image: url("./assets/ink-card-bg.jpg") !important; */
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.txt-rotate {
+  margin-top: 30px !important;
+}
