@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const mongoose = require("mongoose");
+
 // const fs = require("fs");
 // const https = require("https");
 // const privatekey = fs.readFileSync("key.pem");
@@ -13,6 +14,8 @@ const mongoose = require("mongoose");
 const url = "https://api.github.com/users/karthik4423/repos";
 
 const app = express();
+app.set("view engine", "ejs");
+app.use(express.static("public"));
 require("dotenv").config();
 
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -102,7 +105,7 @@ app.use(cors(corsOptions));
 
 //var httpsServer = https.createServer(credentials, app);
 app.listen(80, () => {
-  console.log("App is listening at port 8000");
+  console.log("App is listening at port 80");
 });
 // repoData
 //   .deleteMany()
@@ -203,7 +206,7 @@ function addtodb() {
 }
 
 app.get("/", function (req, res) {
-  res.sendFile("index.html", { root: __dirname });
+  res.render("index");
 });
 
 app.get("/getdata", function (req, res) {
