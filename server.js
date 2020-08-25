@@ -101,7 +101,7 @@ app.use(function (req, res, next) {
 app.use(cors(corsOptions));
 
 //var httpsServer = https.createServer(credentials, app);
-app.listen(8000, () => {
+app.listen(80, () => {
   console.log("App is listening at port 8000");
 });
 // repoData
