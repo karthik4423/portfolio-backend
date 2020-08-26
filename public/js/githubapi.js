@@ -1,7 +1,7 @@
 const axios = window.axios;
 
 var datas;
-const url = "https://localhost:8000/getdata";
+const url = "http://157.245.109.70:80/getdata";
 axios
   .get(url, {})
   .then((datas) => {

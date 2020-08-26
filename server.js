@@ -182,7 +182,7 @@ function addtodb() {
     }
     const language_url = reponames[i][4];
     const landat = languages[i];
-    console.log(landat);
+    //console.log(landat);
 
     const repo = new repoData({
       updated_at,
