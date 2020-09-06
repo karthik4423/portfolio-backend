@@ -113,19 +113,22 @@ function getGitData() {
   axios
     .get(url, {})
     .then(function (datas) {
+      reponames = [];
       for (var i = 0; i < datas.data.length; i++) {
-        if (JSON.stringify(datas.data[i].fork) == "false") {
-          if (
-            datas.data[i].name != "karthik4423.github.io" &&
-            datas.data[i].name != "karthik4423"
-          ) {
-            reponames.push([
-              datas.data[i].updated_at,
-              datas.data[i].name,
-              datas.data[i].language,
-              datas.data[i].description,
-              datas.data[i].languages_url,
-            ]);
+        if (reponames.length < 5) {
+          if (JSON.stringify(datas.data[i].fork) == "false") {
+            if (
+              datas.data[i].name != "karthik4423.github.io" &&
+              datas.data[i].name != "karthik4423"
+            ) {
+              reponames.push([
+                datas.data[i].updated_at,
+                datas.data[i].name,
+                datas.data[i].language,
+                datas.data[i].description,
+                datas.data[i].languages_url,
+              ]);
+            }
           }
         }
       }
