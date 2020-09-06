@@ -2,15 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const mongoose = require("mongoose");
-
-// const fs = require("fs");
-// const https = require("https");
-// const privatekey = fs.readFileSync("key.pem");
-// const certificate = fs.readFileSync("cert.pem");
-// const credentials = { key: privatekey, cert: certificate };
-
-//const { Mongos } = require("mongodb");
-//const bodyParser = require("body-parser");
 const url = "https://api.github.com/users/karthik4423/repos";
 
 const app = express();
@@ -103,7 +94,6 @@ app.use(function (req, res, next) {
 });
 app.use(cors(corsOptions));
 
-//var httpsServer = https.createServer(credentials, app);
 app.listen(80, () => {
   console.log("App is listening at port 80");
 });
@@ -111,8 +101,8 @@ app.listen(80, () => {
 //   .deleteMany()
 //   .then((result) => console.log(`Deleted ${result.deletedCount} item(s).`))
 //   .catch((err) => console.error(`outside Delete failed with error: ${err}`));
-getGitData();
 
+getGitData();
 setTimeout(getGitData, 36000000);
 
 function getGitData() {
@@ -214,7 +204,7 @@ app.get("/getdata", function (req, res) {
   for (var i = 0; i < reponames.length; i++) {
     data.push(reponames[i], languages[i]);
   }
-
+  console.log(data);
   res.send(data);
 });
 app.get("/getlang", function (req, res) {

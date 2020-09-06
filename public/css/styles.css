@@ -1,12 +1,3 @@
-body,
-html {
-  /* margin: 0;
-  padding: 0; */
-  /* width: auto; */
-  height: 100%;
-  /*box-sizing: border-box;*/
-}
-
 hr {
   border: 0;
   clear: both;
@@ -58,6 +49,11 @@ figure {
   width: 50%;
 }
 
+.bio-text:focus-visible {
+  animation: fadeInLeft;
+  animation-duration: 2s;
+}
+
 a,
 a:link,
 a:visited,
@@ -72,10 +68,24 @@ a.nolink {
   border-bottom: none;
 }
 
-.jumbotron {
-  background-color: #7510f7 !important ;
-  align-items: center;
-  min-height: 40% !important;
+.black-text {
+  color: #000000;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.download-btn {
+  margin: 20px 0px !important;
+  background-color: #6772e5 !important;
+  color: white !important;
+}
+
+.jumbo {
+  background-image: url(../images/curly-brackets.svg), url(../images/code.svg) !important ;
+  background-repeat: no-repeat;
+  background-position: 100% 15%, 10% 100%;
+  background-color: #ffffff !important;
+  min-height: 100vh !important;
 }
 
 .card-style {
@@ -110,4 +120,137 @@ a.nolink {
 }
 .txt-rotate {
   margin-top: 30px !important;
+}
+
+/* everything after this is copied */
+/* 
+    ================================
+        Best Viewed In Full Page
+    ================================
+*/
+
+/* Hover over a card to flip, can tab too. */
+
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* default */
+*,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .flip-card-container */
+.flip-card-container {
+  --hue: 150;
+  --primary: hsl(var(--hue), 50%, 50%);
+  --white-1: hsl(0, 0%, 90%);
+  --white-2: hsl(0, 0%, 80%);
+  --dark: hsl(var(--hue), 25%, 10%);
+  --grey: hsl(0, 0%, 50%);
+  --blue: rgb(38, 55, 92);
+
+  /* width: 227px;
+  height: 500px;
+  margin: 40px; */
+  width: 250px;
+  height: 420px;
+  margin: 5px;
+
+  /* perspective: 1000px; */
+}
+
+/* .flip-card */
+.flip-card {
+  width: inherit;
+  height: inherit;
+
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.6s 0.1s;
+}
+
+/* hover and focus-within states */
+.flip-card-container:hover .flip-card,
+.flip-card-container:focus-within .flip-card {
+  transform: rotateY(180deg);
+}
+
+/* .card-... */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+
+  background: var(--blue);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  backface-visibility: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .card-front */
+.card-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* .card-back */
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* ul */
+ul {
+  /* padding-top: 50%; */
+  margin: 0 auto;
+  width: 70%;
+  height: 100%;
+
+  list-style: none;
+  color: var(--white-1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* li */
+li {
+  width: 100%;
+  margin-top: 12px;
+  padding-bottom: 12px;
+
+  font-size: 14px;
+  text-align: center;
+
+  position: relative;
+}
+
+li:nth-child(2n) {
+  color: var(--white-2);
+}
+
+li:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: currentColor;
+  opacity: 0.2;
 }
