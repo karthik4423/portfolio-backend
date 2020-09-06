@@ -97,10 +97,6 @@ app.use(cors(corsOptions));
 app.listen(80, () => {
   console.log("App is listening at port 80");
 });
-// repoData
-//   .deleteMany()
-//   .then((result) => console.log(`Deleted ${result.deletedCount} item(s).`))
-//   .catch((err) => console.error(`outside Delete failed with error: ${err}`));
 
 getGitData();
 setTimeout(getGitData, 36000000);

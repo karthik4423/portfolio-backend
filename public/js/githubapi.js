@@ -28,92 +28,30 @@ function addData(datas) {
     p += 2;
     q += 2;
   }
-  console.log("from githubapi", reponames, languages);
+  var totallines = [];
+  for (var i = 0; i < languages.length; i++) {
+    var count = 0;
+    for (var j = 0; j < languages[i].length; j++) {
+      count += languages[i][j][1];
+    }
+    totallines.push(count);
+  }
+  console.log(totallines);
+  for (var i = 0; i < languages.length; i++) {
+    console.log("from earlyier fn", languages[i]);
+    for (var j = 0; j < languages[i].length; j++) {
+      var percentage = (languages[i][j][1] / totallines[i]) * 100;
+      if (percentage < 10) {
+        languages[i][j].push(percentage.toPrecision(3));
+      } else {
+        languages[i][j].push(percentage.toPrecision(4));
+      }
+    }
+  }
+  console.log(languages);
+  //console.log("from githubapi", reponames, languages);
   setTimeout(addElement, 120);
 }
-
-// function addElement() {
-//   for (var i = 0; i < 4; i++) {
-//     reponames[i][0] = reponames[i][0].toString().slice(0, 16);
-//     reponames[i][1] = reponames[i][1].replace(/-/g, " ");
-//     reponames[i][1] = reponames[i][1].replace(/_/g, " ");
-//     reponames[i][0] = reponames[i][0].replace(" ", ", ");
-//     newElem = document.createElement("div");
-//     newElem.setAttribute("id", divId);
-//     newElem.setAttribute("class", "card col-8 card-style");
-//     innerElem = document.createElement("div");
-//     innerElem.setAttribute("id", divId + "in");
-//     innerElem.setAttribute("class", "card-body");
-//     innerElem.innerHTML =
-//       "<div>" +
-//       '<h5 class="card-title text-center"> Repo Name : ' +
-//       reponames[i][1] +
-//       "</h5>" +
-//       '<hr class="red"/>' +
-//       "<p><b> Description : </b>" +
-//       reponames[i][3] +
-//       "</p>" +
-//       "<p><b> Languages : </b>" +
-//       reponames[i][2] +
-//       "</p>" +
-//       "<p><b> Last Updated : </b>" +
-//       new Date(reponames[i][0]) +
-//       "</p>" +
-//       "</div>" +
-//       '<div style="height:inherit;width:auto">' +
-//       '<div id="chart' +
-//       divId +
-//       '" >' +
-//       //style="width: 75%; height: 50%"
-//       //Object.entries(languages[i]) +
-
-//       "</div>" +
-//       "</div>";
-//     // setTimeout(drawPieChart(divId, i), 200);
-
-//     newElem.appendChild(innerElem);
-//     document.getElementById("repos").appendChild(newElem);
-//     // console.log(newElem);
-//     // console.log(languages);
-//     divId += 1;
-//   }
-
-//   for (i = 0; i < 4; i++) {
-//     drawPieChart(languages[i], i + 1, i);
-//     //console.log(reponames[i][1], languages[i]);
-//   }
-// }
-
-// function drawPieChart(langarray, id, i) {
-//   id = "chart" + id;
-//   //console.log(id);
-//   //langarray = [];
-//   google.charts.load("current", { packages: ["corechart"] });
-//   google.charts.setOnLoadCallback(drawChart);
-//   // langarray = Object.entries(languages[i]);
-//   //langarray = languages[i];
-//   langarray.unshift(["Language", "lines"]);
-//   //console.log(langarray);
-//   // Draw the chart and set the chart values
-
-//   function drawChart() {
-//     let data = google.visualization.arrayToDataTable(langarray);
-//     //console.log(data);
-
-//     // Optional; add a title and set the width and height of the chart
-//     let options = {
-//       title: "Language Split",
-//       pieHole: 0.4,
-//       height: 50 + "%",
-//       width: 75 + "%",
-//     };
-
-//     // Display the chart inside the <div> element with id="piechart"
-//     var chart = new google.visualization.PieChart(document.getElementById(id));
-//     chart.draw(data, options);
-//     //chart.draw(data, options);
-//   }
-// }
 
 //attempting new card design
 function addElement() {
@@ -177,32 +115,21 @@ function addElement() {
     document.getElementById("repos").appendChild(newElem);
     divId += 1;
   }
-
+  console.log(languages);
   for (i = 0; i < 4; i++) {
-    drawPieChart(languages[i], i + 1, i);
+    addLangData(languages[i], i + 1, i);
   }
 }
 
-function drawPieChart(langarray, id, i) {
+function addLangData(langarray, id, i) {
+  console.log(langarray);
   id = "chart" + id;
-  google.charts.load("current", { packages: ["corechart"] });
-  google.charts.setOnLoadCallback(drawChart);
-  langarray.unshift(["Language", "lines"]);
-  // Draw the chart and set the chart values
-
-  function drawChart() {
-    let data = google.visualization.arrayToDataTable(langarray);
-
-    // Optional; add a title and set the width and height of the chart
-    let options = {
-      title: "Language Split",
-      pieHole: 0.4,
-      height: 50 + "%",
-      width: 75 + "%",
-    };
-
-    // Display the chart inside the <div> element with id="piechart"
-    var chart = new google.visualization.PieChart(document.getElementById(id));
-    chart.draw(data, options);
+  elem = document.getElementById(id);
+  newelem = document.createElement("ul");
+  for (var p = 0; p < langarray.length; p++) {
+    newli = document.createElement("li");
+    newli.innerHTML = langarray[p][0] + " : " + langarray[p][2];
+    newelem.appendChild(newli);
   }
+  elem.appendChild(newelem);
 }
